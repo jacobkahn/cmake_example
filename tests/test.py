@@ -1,5 +1,14 @@
 import cmake_example as m
 
-assert m.__version__ == '0.0.1'
-assert m.add(1, 2) == 3
-assert m.subtract(1, 2) == -1
+# Verify everything works
+m.myFunc1(4)
+print(m.myFunc2(5))
+
+# works fine
+print("some_func_operation with myFunc1")
+m.some_func_operation(m.myFunc1, 1)
+
+# hangs - you can see that it also calls the wrong overload
+# (it prints "void return overload")
+print("some_func_operation with myFunc2")
+m.some_func_operation(m.myFunc2, 2)
